@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Talent Digital X</title>
+
+<style>
+:root {
+  --primary: #0b3c5d;
+  --secondary: #1f7a8c;
+  --bg: #f4f6f8;
+  --card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  height: 45px;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+}
+
+/* SIDEBAR */
+nav {
+  width: 220px;
+  background: #122b3e;
+  min-height: calc(100vh - 75px);
+  padding-top: 20px;
+}
+
+nav button {
+  width: 100%;
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+nav button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* CONTENT */
+main {
+  flex: 1;
+  padding: 30px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.kpi {
+  font-size: 32px;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+button.primary {
+  background: var(--secondary);
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: #16697a;
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+/* BADGES */
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  background: #e1f5f8;
+  color: #16697a;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #f0f0f0;
+  text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex; align-items:center; gap:15px;">
+    <img src="LOGO_URL_AQUI.jpg" alt="Talent Digital X">
+    <h1>Talent Digital X</h1>
+  </div>
+  <span>Plataforma Inteligente de Talento Digital</span>
+</header>
+
+<div class="container">
+
+<nav>
+  <button onclick="go('home')">🏠 Home</button>
+  <button onclick="go('diagnostico')">📋 Diagnóstico</button>
+  <button onclick="go('resultados')">📊 Resultados</button>
+  <button onclick="go('dashboard')">📈 Dashboard</button>
+  <button onclick="go('recomendaciones')">🤖 IA & Recomendaciones</button>
+</nav>
+
+<main>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <div class="card">
+    <h2>Bienvenido a Talent Digital X</h2>
+    <p>
+      Plataforma inteligente para diagnosticar, medir y acelerar la adopción
+      de la transformación digital desde el talento y la cultura organizacional.
+    </p>
+    <span class="badge">Industria – Servicios</span>
+    <br><br>
+    <button class="primary" onclick="go('diagnostico')">
+      Iniciar Diagnóstico Digital
+    </button>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
+  <div class="card">
+    <h2>Diagnóstico de Adopción Digital</h2>
+
+    <p>Uso de herramientas digitales</p>
+    <input type="range" min="1" max="5">
+
+    <p>Competencias digitales del equipo</p>
+    <input type="range" min="1" max="5">
+
+    <p>Apertura al cambio cultural</p>
+    <input type="range" min="1" max="5">
+
+    <p>Liderazgo digital</p>
+    <input type="range" min="1" max="5">
+
+    <br>
+    <button class="primary" onclick="go('resultados')">
+      Procesar Diagnóstico
+    </button>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="kpis">
+    <div class="card">
+      <p>Madurez Digital</p>
+      <div class="kpi">Intermedia</div>
+    </div>
+    <div class="card">
+      <p>Riesgo Cultural</p>
+      <div class="kpi">Alto</div>
+    </div>
+    <div class="card">
+      <p>Brechas Detectadas</p>
+      <div class="kpi">4</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Áreas Críticas</h3>
+    <ul>
+      <li>Operaciones</li>
+      <li>Comercial</li>
+    </ul>
+  </div>
+
+  <button class="primary" onclick="go('dashboard')">Ver Dashboard Ejecutivo</button>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="card">
+    <h2>Dashboard Ejecutivo</h2>
+    <table>
+      <tr>
+        <th>Área</th>
+        <th>Adopción Digital</th>
+        <th>Riesgo</th>
+      </tr>
+      <tr>
+        <td>Operaciones</td>
+        <td>55%</td>
+        <td>Alto</td>
+      </tr>
+      <tr>
+        <td>Comercial</td>
+        <td>60%</td>
+        <td>Medio</td>
+      </tr>
+      <tr>
+        <td>RRHH</td>
+        <td>75%</td>
+        <td>Bajo</td>
+      </tr>
+    </table>
+  </div>
+
+  <button class="primary" onclick="go('recomendaciones')">
+    Ver Recomendaciones IA
+  </button>
+</section>
+
+<!-- RECOMENDACIONES -->
+<section id="recomendaciones">
+  <div class="card">
+    <h2>Recomendaciones Inteligentes</h2>
+
+    <p><strong>IA Detectó:</strong></p>
+    <ul>
+      <li>Alta resistencia al cambio en Operaciones</li>
+      <li>Baja adopción de herramientas digitales clave</li>
+    </ul>
+
+    <p><strong>Acciones sugeridas:</strong></p>
+    <ul>
+      <li>Programa focalizado de acompañamiento digital</li>
+      <li>Refuerzo de liderazgo digital en mandos medios</li>
+      <li>Microlearning contextual por rol</li>
+    </ul>
+  </div>
+
+  <button class="primary" onclick="go('home')">Volver al Home</button>
+</section>
+
+</main>
+</div>
+
+<script>
+function go(id) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
